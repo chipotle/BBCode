@@ -1,0 +1,7 @@
+[
+  { "keys": ["ctrl+shift+b"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Bold.sublime-snippet"} },
+  { "keys": ["ctrl+shift+c"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Color.sublime-snippet"} },
+  { "keys": ["ctrl+shift+i"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Italic.sublime-snippet"} },
+  { "keys": ["ctrl+shift+2"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Size.sublime-snippet"} },
+  { "keys": ["ctrl+shift+w"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Wrap.sublime-snippet"} }
+]

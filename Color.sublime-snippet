@@ -1,0 +1,5 @@
+<snippet>
+  <content><![CDATA[[color="${2:red}"]${1:$TM_SELECTED_TEXT}[/color]]]></content>
+  <description>Color</description>
+  <scope>text.bbcode</scope>
+</snippet>

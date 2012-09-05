@@ -1,0 +1,5 @@
+<snippet>
+  <content><![CDATA[[size=${2:1}]$1[/size]]]></content>
+  <description>Size</description>
+  <scope>text.bbcode</scope>
+</snippet>

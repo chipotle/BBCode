@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[[quote=$1]${2:$TM_SELECTED_TEXT}[/quote]]]></content>
+  <keyEquivalent>~@q</keyEquivalent>
+  <description>Quote</description>
+  <scope>text.bbcode</scope>
+  <tabTrigger>quote</tabTrigger>
+</snippet>

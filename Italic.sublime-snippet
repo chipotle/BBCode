@@ -1,0 +1,5 @@
+<snippet>
+  <content><![CDATA[[i]${1:$TM_SELECTED_TEXT}[/i]]]></content>
+  <description>Italic</description>
+  <scope>text.bbcode</scope>
+</snippet>

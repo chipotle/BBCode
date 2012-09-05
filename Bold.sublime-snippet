@@ -1,0 +1,5 @@
+<snippet>
+  <content><![CDATA[[b]${1:$TM_SELECTED_TEXT}[/b]]]></content>
+  <description>Bold</description>
+  <scope>text.bbcode</scope>
+</snippet>

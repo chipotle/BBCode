@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[[url=$1]${2:$1}[/url]$0]]></content>
+  <description>Link (url)</description>
+  <scope>text.bbcode</scope>
+  <tabTrigger>url</tabTrigger>
+</snippet>

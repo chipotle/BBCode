@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[[img]$1[/img]$0]]></content>
+  <description>Image (img)</description>
+  <scope>text.bbcode</scope>
+  <tabTrigger>img</tabTrigger>
+</snippet>
