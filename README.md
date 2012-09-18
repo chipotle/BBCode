@@ -1,11 +1,9 @@
 # BBCode Bundle for Sublime Text 2
 
-This is a port of the [TextMate BBCode Bundle][1] by [Ryan Bates][2], Michael Dippery and Grayson Manley.
+This is a fork of the [TextMate BBCode Bundle][1] by [Ryan Bates][2], Michael Dippery and Grayson Manley.
 
 [1]: https://github.com/gmanley/BBCode.tmbundle
 [2]: http://www.rybud.com/
-
-Currently, this only implements the syntaxes and snippets, with no preview capability.
 
 ## Snippet Keybindings
 
@@ -25,5 +23,9 @@ Use `Cmd+Shift` on OS X and `Ctrl+Shift` on other platforms.
     1         ordered list block
     *         unordered list block
     -         list item
+
+## Commands
+
+Just one plugin is implemented: "Convert from Markdown." Currently, this only handles bold, italics, and inline (not reference) links.
 
 Watts Martin <layotl@gmail.com>
