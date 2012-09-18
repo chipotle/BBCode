@@ -4,7 +4,6 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>safari</string>
 		<string>bbcode</string>
 		<string>bb</string>
 	</array>
