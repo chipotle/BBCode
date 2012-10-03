@@ -339,9 +339,53 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\[/?[^\]]+\]</string>
+			<string>(\[url=?(.*?)\])(.*?)(\[/url\])</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.any.bbcode</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.value.bbcode</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.any.bbcode</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\[/?[^\]=]*\]</string>
 			<key>name</key>
 			<string>meta.tag.any.bbcode</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\[.*?=(.*?)\]</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.any.bbcode</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.value.bbcode</string>
+				</dict>
+			</dict>
 		</dict>
 	</array>
 	<key>scopeName</key>
