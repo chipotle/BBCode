@@ -1,0 +1,18 @@
+{
+	"extensions":
+	[
+		"bbcode"
+	],
+	"trim_trailing_white_space_on_save": false,
+	"font_face": "Courier",
+	// "font_size": 12,
+	"color_scheme": "Packages/BBCode/BBCode.tmTheme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true,
+	"wrap_width": 74,
+	"draw_centered": true,
+	"auto_match_enabled": true,
+	"caret_style": "wide",
+	"line_padding_top": 2,
+	"highlight_line": false
+}
