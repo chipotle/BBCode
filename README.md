@@ -7,7 +7,7 @@ This is a fork of the [TextMate BBCode Bundle][1] by [Ryan Bates][2], Michael Di
 
 ## Snippet Keybindings
 
-Use `Cmd+Shift` on OS X and `Ctrl+Shift` on other platforms.
+Use `Cmd+Ctrl` on OS X and `Ctrl+Shift` on other platforms.
 
     B    Bold
     I    Italic
