@@ -26,6 +26,8 @@ Use `Cmd+Ctrl` on OS X and `Ctrl+Shift` on other platforms.
 
 ## Commands
 
-Just one plugin is implemented: "Convert from Markdown." Currently, this only handles bold, italics, and inline (not reference) links.
+Just one command is implemented so far: "Convert from Markdown." Currently, this only handles bold, italics, and inline (not reference) links.
+
+A command to go from BBCode to Markdown and BBCode to HTML would be desirable but the author tends to write in Markdown as the "native" format and convert to other formats when necessary. If you're up for writing one...
 
 Watts Martin <layotl@gmail.com>
