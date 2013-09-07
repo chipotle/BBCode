@@ -6,9 +6,9 @@ import re
 class MarkdownToBbcodeCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         self.convert_links(edit)
+        self.convert_separators(edit)
         self.convert_bold(edit)
         self.convert_italics(edit)
-        self.convert_separators(edit)
 
     def translate(self, edit, from_re, to_func):
         re_text = re.compile(from_re)
@@ -20,6 +20,11 @@ class MarkdownToBbcodeCommand(sublime_plugin.TextCommand):
             text = to_func(res)
             self.view.replace(edit, v, text)
             v = self.view.find(from_re, v.end())
+
+    def convert_separators(self, edit):
+        rep = lambda x: '[center]* * *[/center]'
+        self.translate(edit, '^-{3,}$', rep)
+        self.translate(edit, '^\* \* \*$', rep)
 
     def convert_links(self, edit):
         rep = lambda x: '[url=' + x.group(2) + ']' + x.group(1) + '[/url]'
@@ -33,6 +38,4 @@ class MarkdownToBbcodeCommand(sublime_plugin.TextCommand):
         rep = lambda x: '[i]' + x.group(2) + '[/i]'
         self.translate(edit, '(_|\*)(.*?)(_|\*)', rep)
 
-    def convert_separators(self, edit):
-        rep = lambda x: '[center]* * *[/center]'
-        self.translate(edit, '^-{3,}$', rep)
+        self.translate(edit, '(_|\*)(\S.*?)(_|\*)', rep)
