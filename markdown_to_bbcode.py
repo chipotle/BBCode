@@ -32,10 +32,8 @@ class MarkdownToBbcodeCommand(sublime_plugin.TextCommand):
 
     def convert_bold(self, edit):
         rep = lambda x: '[b]' + x.group(2) + '[/b]'
-        self.translate(edit, '(__|\*\*)(.*?)(__|\*\*)', rep)
+        self.translate(edit, '(__|\*\*)(\S.*?)(__|\*\*)', rep)
 
     def convert_italics(self, edit):
         rep = lambda x: '[i]' + x.group(2) + '[/i]'
-        self.translate(edit, '(_|\*)(.*?)(_|\*)', rep)
-
         self.translate(edit, '(_|\*)(\S.*?)(_|\*)', rep)
