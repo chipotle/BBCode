@@ -28,7 +28,7 @@ class MarkdownToBbcodeCommand(sublime_plugin.TextCommand):
 
     def convert_links(self, edit):
         rep = lambda x: '[url=' + x.group(2) + ']' + x.group(1) + '[/url]'
-        self.translate(edit, '\[(.*?)\]\((.*?)\)', rep)
+        self.translate(edit, '\[([^\]]*?)\]\((.*?)\)', rep)
 
     def convert_bold(self, edit):
         rep = lambda x: '[b]' + x.group(2) + '[/b]'
