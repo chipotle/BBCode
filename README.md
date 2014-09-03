@@ -1,4 +1,4 @@
-# BBCode Bundle for Sublime Text 2
+# BBCode Bundle for Sublime Text
 
 This is a fork of the [TextMate BBCode Bundle][1] by [Ryan Bates][2], Michael Dippery and Grayson Manley.
 
@@ -23,11 +23,3 @@ Use `Cmd+Ctrl` on OS X and `Ctrl+Shift` on other platforms.
     1         ordered list block
     *         unordered list block
     -         list item
-
-## Commands
-
-Just one command is implemented so far: "Convert from Markdown." Currently, this only handles bold, italics, and inline (not reference) links.
-
-A command to go from BBCode to Markdown and BBCode to HTML would be desirable but the author tends to write in Markdown as the "native" format and convert to other formats when necessary. If you're up for writing one...
-
-Watts Martin <layotl@gmail.com>
