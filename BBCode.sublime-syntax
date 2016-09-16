@@ -18,6 +18,16 @@ contexts:
             0: meta.tag.code.ruby.bbcode
           pop: true
         - include: scope:source.ruby
+    - match: '(?i)\[(pawn|html|code|php)\]'
+      captures:
+        0: meta.tag.code.pawn.bbcode
+      push:
+        - meta_scope: source.pawn.embedded.bbcode
+        - match: '(?i)\[/(pawn|html|code|php)\]'
+          captures:
+            0: meta.tag.code.pawn.bbcode
+          pop: true
+        - include: scope:source.AmxxPawn
     - match: '\[code=html\]'
       captures:
         0: meta.tag.code.html.bbcode
