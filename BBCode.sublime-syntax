@@ -27,7 +27,7 @@ contexts:
           captures:
             0: meta.tag.code.pawn.bbcode
           pop: true
-        - include: scope:source.AmxxPawn
+        - include: scope:source.AmxxPawn source.sma
     - match: '\[code=html\]'
       captures:
         0: meta.tag.code.html.bbcode
