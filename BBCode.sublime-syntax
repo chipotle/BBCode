@@ -7,7 +7,47 @@ file_extensions:
   - bb
 scope: text.bbcode
 contexts:
+
+  # Naming Conventions
+  # http://manual.macromates.com/en/language_grammars#naming_conventions.html
   main:
+    - include: languages
+    - include: anchors
+    - include: general_tags
+
+  anchors:
+    - match: '(\[goanchor=?(.*?)\])(.*?)(\[/url\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: meta.tag.value.bbcode
+        3: markup.underline
+        4: meta.tag.any.bbcode
+
+  general_tags:
+    - match: '(\[[B|b]\])(.*?)(\[/[B|b]\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: markup.bold
+        3: meta.tag.any.bbcode
+    - match: '(\[[I|i]\])(.*?)(\[/[I|i]\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: markup.italic
+        3: meta.tag.any.bbcode
+    - match: '(\[url=?(.*?)\])(.*?)(\[/url\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: meta.tag.value.bbcode
+        3: markup.underline
+        4: meta.tag.any.bbcode
+    - match: '\[/?[^\]=]*\]'
+      scope: meta.tag.any.bbcode
+    - match: '\[.*?=(.*?)\]'
+      captures:
+        0: meta.tag.any.bbcode
+        1: meta.tag.value.bbcode
+
+  languages:
     - match: '\[code=ruby\]'
       captures:
         0: meta.tag.code.ruby.bbcode
@@ -138,25 +178,6 @@ contexts:
             0: meta.tag.code.yaml.bbcode
           pop: true
         - include: scope:source.yaml
-    - match: '(\[[B|b]\])(.*?)(\[/[B|b]\])'
-      captures:
-        1: meta.tag.any.bbcode
-        2: markup.bold
-        3: meta.tag.any.bbcode
-    - match: '(\[[I|i]\])(.*?)(\[/[I|i]\])'
-      captures:
-        1: meta.tag.any.bbcode
-        2: markup.italic
-        3: meta.tag.any.bbcode
-    - match: '(\[url=?(.*?)\])(.*?)(\[/url\])'
-      captures:
-        1: meta.tag.any.bbcode
-        2: meta.tag.value.bbcode
-        3: markup.underline
-        4: meta.tag.any.bbcode
-    - match: '\[/?[^\]=]*\]'
-      scope: meta.tag.any.bbcode
-    - match: '\[.*?=(.*?)\]'
-      captures:
-        0: meta.tag.any.bbcode
-        1: meta.tag.value.bbcode
+
+
+
