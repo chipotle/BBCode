@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[[url=$1]$TM_SELECTED_TEXT[/url]$0]]></content>
+  <description>Wrap Selection with a Link (URL)</description>
+  <scope>text.bbcode</scope>
+  <tabTrigger>url</tabTrigger>
+</snippet>

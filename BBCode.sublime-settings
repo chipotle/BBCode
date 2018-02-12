@@ -3,16 +3,4 @@
 	[
 		"bbcode"
 	],
-	"trim_trailing_white_space_on_save": false,
-	"font_face": "Menlo",  // Best with a font that has real bold & italics!
-	"font_size": 13,
-	"color_scheme": "Packages/BBCode Syntax/BBCode.tmTheme",
-	"translate_tabs_to_spaces": true,
-	"word_wrap": true,
-	"wrap_width": 74,
-	"draw_centered": true,
-	"auto_match_enabled": true,
-	"caret_style": "wide",
-	"line_padding_top": 1,
-	"highlight_line": false
 }

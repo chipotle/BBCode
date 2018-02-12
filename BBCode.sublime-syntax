@@ -1,0 +1,205 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: BBCode
+file_extensions:
+  - bbcode
+  - bb
+scope: text.bbcode
+contexts:
+
+  # Naming Conventions
+  # http://manual.macromates.com/en/language_grammars#naming_conventions.html
+  main:
+    - include: languages
+    - include: anchors
+    - include: general_tags
+
+
+  anchors:
+
+    - match: '\[anchor\]'
+      scope: meta.tag.any.bbcode
+      push:
+        - meta_content_scope: entity.anchor.definition.bbcode
+        - match: '\[/anchor\]'
+          scope: meta.tag.any.bbcode
+          pop: true
+
+
+  general_tags:
+
+    - match: '(\[[B|b]\])(.*?)(\[/[B|b]\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: markup.bold
+        3: meta.tag.any.bbcode
+
+    - match: '(\[[I|i]\])(.*?)(\[/[I|i]\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: markup.italic
+        3: meta.tag.any.bbcode
+
+    - match: '(\[url=?(.*?)\])(.*?)(\[/url\])'
+      captures:
+        1: meta.tag.any.bbcode
+        2: meta.tag.value.bbcode
+        3: markup.underline
+        4: meta.tag.any.bbcode
+
+    - match: '\[/?[^\]=]*\]'
+      scope: meta.tag.any.bbcode
+    - match: '\[.*?=(.*?)\]'
+      captures:
+        0: meta.tag.any.bbcode
+        1: meta.tag.value.bbcode
+
+
+  languages:
+
+    - match: '(?i)\[(pawn|html|code|php)\]'
+      captures:
+        0: meta.tag.code.pawn.bbcode
+      push:
+        - meta_scope: source.pawn.embedded.bbcode
+        - match: '(?i)\[/(pawn|html|code|php)\]'
+          captures:
+            0: meta.tag.code.pawn.bbcode
+          pop: true
+        - include: scope:source.AmxxPawn source.sma
+
+    - match: '\[code=ruby\]'
+      captures:
+        0: meta.tag.code.ruby.bbcode
+      push:
+        - meta_scope: source.ruby.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.ruby.bbcode
+          pop: true
+        - include: scope:source.ruby
+
+    - match: '\[code=html\]'
+      captures:
+        0: meta.tag.code.html.bbcode
+      push:
+        - meta_scope: text.html.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.html.bbcode
+          pop: true
+        - include: scope:text.html.basic
+
+    - match: '\[code=rhtml\]'
+      captures:
+        0: meta.tag.code.rhtml.bbcode
+      push:
+        - meta_scope: text.rhtml.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.rhtml.bbcode
+          pop: true
+        - include: scope:text.html.ruby
+
+    - match: '\[code=(js|javascript)\]'
+      captures:
+        0: meta.tag.code.js.bbcode
+      push:
+        - meta_scope: source.js.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.js.bbcode
+          pop: true
+        - include: scope:source.js
+
+    - match: '\[code=(css|stylesheet)\]'
+      captures:
+        0: meta.tag.code.css.bbcode
+      push:
+        - meta_scope: source.css.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.css.bbcode
+          pop: true
+        - include: scope:source.css
+
+    - match: '\[code=php\]'
+      captures:
+        0: meta.tag.code.php.bbcode
+      push:
+        - meta_scope: source.php.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.php.bbcode
+          pop: true
+        - include: scope:source.php
+
+    - match: '\[code=python\]'
+      captures:
+        0: meta.tag.code.python.bbcode
+      push:
+        - meta_scope: source.python.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.python.bbcode
+          pop: true
+        - include: scope:source.python
+
+    - match: '\[code=perl\]'
+      captures:
+        0: meta.tag.code.perl.bbcode
+      push:
+        - meta_scope: source.perl.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.perl.bbcode
+          pop: true
+        - include: scope:source.perl
+
+    - match: '\[code=sql\]'
+      captures:
+        0: meta.tag.code.sql.bbcode
+      push:
+        - meta_scope: source.sql.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.sql.bbcode
+          pop: true
+        - include: scope:source.sql
+
+    - match: '\[code=java\]'
+      captures:
+        0: meta.tag.code.java.bbcode
+      push:
+        - meta_scope: source.java.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.java.bbcode
+          pop: true
+        - include: scope:source.java
+
+    - match: '\[code=c\]'
+      captures:
+        0: meta.tag.code.c.bbcode
+      push:
+        - meta_scope: source.c.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.c.bbcode
+          pop: true
+        - include: scope:source.c
+
+    - match: '\[code=yaml\]'
+      captures:
+        0: meta.tag.code.yaml.bbcode
+      push:
+        - meta_scope: source.yaml.embedded.bbcode
+        - match: '\[/code\]'
+          captures:
+            0: meta.tag.code.yaml.bbcode
+          pop: true
+        - include: scope:source.yaml
+
+
+
