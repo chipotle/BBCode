@@ -1,7 +1,7 @@
 [
-  { "keys": ["super+ctrl+b"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Bold.sublime-snippet"} },
-  { "keys": ["super+ctrl+c"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Color.sublime-snippet"} },
-  { "keys": ["super+ctrl+i"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Italic.sublime-snippet"} },
-  { "keys": ["super+ctrl+2"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Size.sublime-snippet"} },
-  { "keys": ["super+ctrl+w"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Wrap.sublime-snippet"} }
+  { "keys": ["super+ctrl+b"], "command": "insert_snippet", "args": {"name": "Packages/BBCode Syntax/Bold.sublime-snippet"} },
+  { "keys": ["super+ctrl+c"], "command": "insert_snippet", "args": {"name": "Packages/BBCode Syntax/Color.sublime-snippet"} },
+  { "keys": ["super+ctrl+i"], "command": "insert_snippet", "args": {"name": "Packages/BBCode Syntax/Italic.sublime-snippet"} },
+  { "keys": ["super+ctrl+2"], "command": "insert_snippet", "args": {"name": "Packages/BBCode Syntax/Size.sublime-snippet"} },
+  { "keys": ["super+ctrl+w"], "command": "insert_snippet", "args": {"name": "Packages/BBCode Syntax/Wrap.sublime-snippet"} }
 ]
