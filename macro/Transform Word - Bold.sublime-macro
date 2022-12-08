@@ -1,0 +1,5 @@
+[
+{"command":"expand_selection"	,"args":{"to":"word"}},
+{"command":"insert_snippet"  	,"args":{"contents":"[b]${1:$SELECTION}[/b]"}},
+// [­b]BOLD TEXT[­/b] will display BOLD TEXT can escape with unprintable char (soft hyphen here after [)
+]
