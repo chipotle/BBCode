@@ -78,6 +78,31 @@ contexts:
       scope     : meta.tag.any.bbcode
       pop       : 1
     - include: emphasis
+
+  underline:
+    - meta_include_prototype: false
+    - match: '\[[U|u]\]'
+      scope: meta.tag.any.bbcode
+      push : underline-body
+  underline-body:
+    - meta_scope: markup.underline
+    - match     : '\[/[U|u]\]'
+      scope     : meta.tag.any.bbcode
+      pop       : 1
+    - include: emphasis
+
+  strikethrough:
+    - meta_include_prototype: false
+    - match: '\[[S|s]\]'
+      scope: meta.tag.any.bbcode
+      push : strikethrough-body
+  strikethrough-body:
+    - meta_scope: markup.strikethrough
+    - match     : '\[/[S|s]\]'
+      scope     : meta.tag.any.bbcode
+      pop       : 1
+    - include: emphasis
+
       captures:
         1: meta.tag.any.bbcode
         2: meta.tag.value.bbcode
