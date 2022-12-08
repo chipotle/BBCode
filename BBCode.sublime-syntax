@@ -1,13 +1,13 @@
 %YAML 1.2
 ---
-# http://www.sublimetext.com/docs/3/syntax.html
-name: BBCode
-file_extensions:
-  - bbcode
-  - bb
-scope: text.bbcode
-contexts:
 
+# http://www.sublimetext.com/docs/3/syntax.html
+name            : BBCode
+file_extensions : [bbcode, bb]
+scope           : text.bbcode
+version         : 2
+
+contexts:
   # Naming Conventions
   # http://manual.macromates.com/en/language_grammars#naming_conventions.html
   main:
