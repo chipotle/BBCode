@@ -12,7 +12,7 @@ contexts:
   main:
     - include: embedded
     - include: anchors
-    - include: general_tags
+    - include: general-tags
 
   embedded:
     - include: embedded-pawn
@@ -39,14 +39,24 @@ contexts:
           scope: meta.tag.any.bbcode
           pop: true
 
+  general-tags:
+    - include: emphasis
+    - include: other-tags
 
-  general_tags:
+  emphasis:
+    - include: bold
+    - include: italic
+    - include: underline
+    - include: strikethrough
 
     - match: '(\[[B|b]\])(.*?)(\[/[B|b]\])'
       captures:
         1: meta.tag.any.bbcode
         2: markup.bold
         3: meta.tag.any.bbcode
+  other-tags:
+    - include: url
+    - include: value-tag
 
     - match: '(\[[I|i]\])(.*?)(\[/[I|i]\])'
       captures:
