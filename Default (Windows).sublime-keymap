@@ -1,4 +1,57 @@
 [
+// // [BBCode] Text Formatting Bold
+//   // auto-pair if not within a word
+//   {"keys":["ctrl+b"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Bold.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - markup.bold - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":true,                                                                  	"match_all":true },
+//     {"key":"eol_selector",   	"operator":"not_equal",         	"operand":"string.quoted.single",                                                	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"['a-zA-Z0-9_*]$",                                                     	"match_all":true },
+//     {"key":"following_text", 	"operator":"regex_contains",    	"operand":"^(?:\t| |\\)|]|\\}|$)",                                               	"match_all":true } ]},
+//   // Bold on Ctrl + B (if caret is at the beginning, in the middle of or at the end of a word)
+//   {"keys":["ctrl+b"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Bold.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - markup.bold - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                                                                  	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"regex_contains",	"operand":"\\w$",                                                                	"match_all":true } ]},
+//   {"keys":["ctrl+b"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Bold.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - markup.bold - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                                                                  	"match_all":true },
+//     {"key":"following_text", 	"operator":"regex_contains",	"operand":"^\\w",                                                                	"match_all":true } ]},
+//   // Transform selection to bold
+//   {"keys":["ctrl+b"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Bold.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - markup.bold - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":false,                                                                 	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"\\[b\\]$",                                                            	"match_all":true },
+//     {"key":"following_text", 	"operator":"not_regex_contains",	"operand":"^\\[\\/b\\]",                                                         	"match_all":true } ]},
+//   // Unbold on Ctrl + B if already bold
+//   {"keys":["ctrl+b"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - UnBold.sublime-macro"},"context":[
+//     {"key":"selector",	"operator":"equal",	"operand":"text.bbcode markup.bold - punctuation, text.bbcode markup.bold_italic - punctuation",	"match_all":true } ]},
+
+// // [BBCode] Text Formatting Italic
+//   // auto-pair if not within a word
+//   {"keys":["ctrl+i"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Italic.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - markup.italic - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":true,                                                                    	"match_all":true },
+//     {"key":"eol_selector",   	"operator":"not_equal",         	"operand":"string.quoted.single",                                                  	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"['a-zA-Z0-9_*]$",                                                       	"match_all":true },
+//     {"key":"following_text", 	"operator":"regex_contains",    	"operand":"^(?:\t| |\\)|]|\\}|$)",                                                 	"match_all":true } ]},
+//   // Italics on Ctrl + I (if caret is at the beginning, in the middle of or at the end of a word)
+//   {"keys":["ctrl+i"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Italic.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - markup.italic - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                                                                    	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"regex_contains",	"operand":"\\w$",                                                                  	"match_all":true } ]},
+//   {"keys":["ctrl+i"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Italic.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - markup.italic - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                                                                    	"match_all":true },
+//     {"key":"following_text", 	"operator":"regex_contains",	"operand":"^\\w",                                                                  	"match_all":true } ]},
+//   // Unitalicize on Ctrl + I if already italic
+//   {"keys":["ctrl+i"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Italic.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - markup.italic - markup.bold_italic - meta.tag.any.bbcode",	"match_all":true },
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":false,                                                                   	"match_all":true },
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"\\[i\\]$",                                                              	"match_all":true },
+//     {"key":"following_text", 	"operator":"not_regex_contains",	"operand":"^\\[\\/i\\]",                                                           	"match_all":true } ]},
+//   {"keys":["ctrl+i"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - UnItalicize.sublime-macro"},"context":[
+//     {"key":"selector",	"operator":"equal",	"operand":"text.bbcode markup.italic - punctuation, text.bbcode markup.bold_italic - punctuation",	"match_all":true } ]},
+
   // { "keys": ["ctrl+shift+b"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Bold.sublime-snippet"} },
   // { "keys": ["ctrl+shift+c"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Color.sublime-snippet"} },
   // { "keys": ["ctrl+shift+i"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Italic.sublime-snippet"} },
