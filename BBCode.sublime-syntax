@@ -30,7 +30,6 @@ contexts:
     - include: embedded-yaml
 
   anchors:
-
     - match: '\[anchor\]'
       scope: meta.tag.any.bbcode
       push:
