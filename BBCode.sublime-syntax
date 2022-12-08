@@ -1,6 +1,5 @@
 %YAML 1.2
 ---
-
 # http://www.sublimetext.com/docs/3/syntax.html
 name            : BBCode
 file_extensions : [bbcode, bb]
@@ -11,10 +10,24 @@ contexts:
   # Naming Conventions
   # http://manual.macromates.com/en/language_grammars#naming_conventions.html
   main:
-    - include: languages
+    - include: embedded
     - include: anchors
     - include: general_tags
 
+  embedded:
+    - include: embedded-pawn
+    - include: embedded-ruby
+    - include: embedded-html
+    - include: embedded-rhtml
+    - include: embedded-js
+    - include: embedded-css
+    - include: embedded-php
+    - include: embedded-python
+    - include: embedded-perl
+    - include: embedded-sql
+    - include: embedded-java
+    - include: embedded-c
+    - include: embedded-yaml
 
   anchors:
 
@@ -56,150 +69,160 @@ contexts:
         1: meta.tag.value.bbcode
 
 
-  languages:
 
+  embedded-pawn:
+    - meta_include_prototype: false
     - match: '(?i)\[(pawn|html|code|php)\]'
       captures:
         0: meta.tag.code.pawn.bbcode
-      push:
-        - meta_scope: source.pawn.embedded.bbcode
-        - match: '(?i)\[/(pawn|html|code|php)\]'
-          captures:
-            0: meta.tag.code.pawn.bbcode
-          pop: true
-        - include: scope:source.AmxxPawn source.sma
-
+      embed: scope:source.AmxxPawn source.sma
+      embed_scope:
+        source.pawn.embedded.bbcode
+        source.pawn
+      escape: '(?i)\[/(pawn|html|code|php)\]'
+      escape_captures:
+        0: meta.tag.code.pawn.bbcode
+  embedded-ruby:
+    - meta_include_prototype: false
     - match: '\[code=ruby\]'
       captures:
         0: meta.tag.code.ruby.bbcode
-      push:
-        - meta_scope: source.ruby.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.ruby.bbcode
-          pop: true
-        - include: scope:source.ruby
-
+      embed: scope:source.ruby
+      embed_scope:
+        source.ruby.embedded.bbcode
+        source.ruby
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.ruby.bbcode
+  embedded-html:
+    - meta_include_prototype: false
     - match: '\[code=html\]'
       captures:
         0: meta.tag.code.html.bbcode
-      push:
-        - meta_scope: text.html.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.html.bbcode
-          pop: true
-        - include: scope:text.html.basic
-
+      embed: scope:text.html.basic
+      embed_scope:
+        text.html.embedded.bbcode
+        text.html.basic
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.html.bbcode
+  embedded-rhtml:
+    - meta_include_prototype: false
     - match: '\[code=rhtml\]'
       captures:
         0: meta.tag.code.rhtml.bbcode
-      push:
-        - meta_scope: text.rhtml.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.rhtml.bbcode
-          pop: true
-        - include: scope:text.html.ruby
-
+      embed: scope:text.html.ruby
+      embed_scope:
+        text.rhtml.embedded.bbcode
+        text.html.ruby
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.rhtml.bbcode
+  embedded-js:
+    - meta_include_prototype: false
     - match: '\[code=(js|javascript)\]'
       captures:
         0: meta.tag.code.js.bbcode
-      push:
-        - meta_scope: source.js.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.js.bbcode
-          pop: true
-        - include: scope:source.js
-
+      embed: scope:source.js
+      embed_scope:
+        source.js.embedded.bbcode
+        source.js
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.js.bbcode
+  embedded-css:
+    - meta_include_prototype: false
     - match: '\[code=(css|stylesheet)\]'
       captures:
         0: meta.tag.code.css.bbcode
-      push:
-        - meta_scope: source.css.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.css.bbcode
-          pop: true
-        - include: scope:source.css
-
+      embed: scope:source.css
+      embed_scope:
+        source.css.embedded.bbcode
+        source.css
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.css.bbcode
+  embedded-php:
+    - meta_include_prototype: false
     - match: '\[code=php\]'
       captures:
         0: meta.tag.code.php.bbcode
-      push:
-        - meta_scope: source.php.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.php.bbcode
-          pop: true
-        - include: scope:source.php
-
+      embed: scope:source.php
+      embed_scope:
+        source.php.embedded.bbcode
+        source.php
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.php.bbcode
+  embedded-python:
+    - meta_include_prototype: false
     - match: '\[code=python\]'
       captures:
         0: meta.tag.code.python.bbcode
-      push:
-        - meta_scope: source.python.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.python.bbcode
-          pop: true
-        - include: scope:source.python
-
+      embed: scope:source.python
+      embed_scope:
+        source.python.embedded.bbcode
+        source.python
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.python.bbcode
+  embedded-perl:
+    - meta_include_prototype: false
     - match: '\[code=perl\]'
       captures:
         0: meta.tag.code.perl.bbcode
-      push:
-        - meta_scope: source.perl.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.perl.bbcode
-          pop: true
-        - include: scope:source.perl
-
+      embed: scope:source.perl
+      embed_scope:
+        source.perl.embedded.bbcode
+        source.perl
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.perl.bbcode
+  embedded-sql:
+    - meta_include_prototype: false
     - match: '\[code=sql\]'
       captures:
         0: meta.tag.code.sql.bbcode
-      push:
-        - meta_scope: source.sql.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.sql.bbcode
-          pop: true
-        - include: scope:source.sql
-
+      embed: scope:source.sql
+      embed_scope:
+        source.sql.embedded.bbcode
+        source.sql
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.sql.bbcode
+  embedded-java:
+    - meta_include_prototype: false
     - match: '\[code=java\]'
       captures:
         0: meta.tag.code.java.bbcode
-      push:
-        - meta_scope: source.java.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.java.bbcode
-          pop: true
-        - include: scope:source.java
-
+      embed: scope:source.java
+      embed_scope:
+        source.java.embedded.bbcode
+        source.java
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.java.bbcode
+  embedded-c:
+    - meta_include_prototype: false
     - match: '\[code=c\]'
       captures:
         0: meta.tag.code.c.bbcode
-      push:
-        - meta_scope: source.c.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.c.bbcode
-          pop: true
-        - include: scope:source.c
-
+      embed: scope:source.c
+      embed_scope:
+        source.c.embedded.bbcode
+        source.c
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.c.bbcode
+  embedded-yaml:
+    - meta_include_prototype: false
     - match: '\[code=yaml\]'
       captures:
         0: meta.tag.code.yaml.bbcode
-      push:
-        - meta_scope: source.yaml.embedded.bbcode
-        - match: '\[/code\]'
-          captures:
-            0: meta.tag.code.yaml.bbcode
-          pop: true
-        - include: scope:source.yaml
-
-
-
+      embed: scope:source.yaml
+      embed_scope:
+        source.yaml.embedded.bbcode
+        source.yaml
+      escape: '\[/code\]'
+      escape_captures:
+        0: meta.tag.code.yaml.bbcode
