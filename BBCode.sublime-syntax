@@ -49,22 +49,35 @@ contexts:
     - include: underline
     - include: strikethrough
 
-    - match: '(\[[B|b]\])(.*?)(\[/[B|b]\])'
-      captures:
-        1: meta.tag.any.bbcode
-        2: markup.bold
-        3: meta.tag.any.bbcode
   other-tags:
     - include: url
     - include: value-tag
 
-    - match: '(\[[I|i]\])(.*?)(\[/[I|i]\])'
-      captures:
-        1: meta.tag.any.bbcode
-        2: markup.italic
-        3: meta.tag.any.bbcode
 
-    - match: '(\[url=?(.*?)\])(.*?)(\[/url\])'
+
+  bold:
+    - meta_include_prototype: false
+    - match: '\[[B|b]\]'
+      scope: meta.tag.any.bbcode
+      push : bold-body
+  bold-body:
+    - meta_scope: markup.bold
+    - match     : '\[/[B|b]\]'
+      scope     : meta.tag.any.bbcode
+      pop       : 1
+    - include: emphasis
+
+  italic:
+    - meta_include_prototype: false
+    - match: '\[[I|i]\]'
+      scope: meta.tag.any.bbcode
+      push : italic-body
+  italic-body:
+    - meta_scope: markup.italic
+    - match     : '\[/[I|i]\]'
+      scope     : meta.tag.any.bbcode
+      pop       : 1
+    - include: emphasis
       captures:
         1: meta.tag.any.bbcode
         2: meta.tag.value.bbcode
