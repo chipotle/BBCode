@@ -103,18 +103,32 @@ contexts:
       pop       : 1
     - include: emphasis
 
+
+  url:
+    - meta_include_prototype: false
+    - match: '\[url=?(.*?)\]'
       captures:
         1: meta.tag.any.bbcode
         2: meta.tag.value.bbcode
-        3: markup.underline
-        4: meta.tag.any.bbcode
+      push : url-body
+  url-body:
+    - meta_scope: markup.underline
+    - match     : '\[/url\]'
+      scope     : meta.tag.any.bbcode
+      pop       : 1
 
+  value-tag:
+    - meta_include_prototype: false
     - match: '\[/?[^\]=]*\]'
       scope: meta.tag.any.bbcode
-    - match: '\[.*?=(.*?)\]'
-      captures:
+      push : value-tag-body
+  value-tag-body:
+    - meta_scope: markup.underline
+    - match     : '\[.*?=(.*?)\]'
+      captures  :
         0: meta.tag.any.bbcode
         1: meta.tag.value.bbcode
+      pop       : 1
 
 
 
