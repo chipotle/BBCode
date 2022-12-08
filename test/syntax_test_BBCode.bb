@@ -61,6 +61,20 @@
 #                 ^^^^                       markup.italic markup.bold markup.underline markup.strikethrough
 
 # 3 Test embedded languages
+
+# 3 Test other tags
+[color="red"] # Color tag
+# <-          meta.tag.any.bbcode
+#^^^^^^       meta.tag.any.bbcode
+#           ^ meta.tag.any.bbcode
+#      ^^^^^  meta.tag.value.bbcode
+red text      #
+# <-          text.bbcode
+#^^^^^^^      text.bbcode
+[/color]      #
+# <-          meta.tag.any.bbcode
+#^^^^^^^      meta.tag.any.bbcode
+
 [code=python]
 # <-                   meta.tag.code.python.bbcode
 #^^^^^^^^^^^^          meta.tag.code.python.bbcode
