@@ -31,16 +31,14 @@ Use `Cmd+Ctrl` on OS X and `Ctrl+Shift` on other platforms.
 
 ## Color scheme
 
-You might want to add the settings below to your `.sublime-color-scheme` file to correctly highlight nested emphasized scopes
+You might want to add the settings below to your `.sublime-color-scheme` file to correctly highlight nested emphasized scopes (change the colors to whatever fits your theme)
 
 ```json
 "variables"    	:{
-// change to the your own colors
   "black3"   	: "hsl(  0,   0%,   3%)",
   "grey_base"	: "hsl(  0,   0%,  50%)",
 }
 "rules"     : [
-// change to the your own colors
   {"name":"||<-- Language: BBCode -->||" },
   {"name":"BBCode: Punctuation Separator (B/I/U/S)"    	,"foreground":"color(var(grey_base) alpha(5))","font_style":"regular"                            	,"scope":"meta.tag.any.bbcode"                                                     	},
   {"name":"BBCode: Bold+Italic"                        	,"foreground":"var(black3)"                   ,"font_style":"italic bold"                        	,"scope":"markup.bold && markup.italic"                                            	},
