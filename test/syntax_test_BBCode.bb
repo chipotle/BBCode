@@ -3,7 +3,7 @@
 # 1 Test overall source match
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.bbcode
 
-# 2 Test emphasis
+# 2 Test emphases
 [b]bold[/b]                           #
 # <-                                  meta.tag.any.bbcode
 #^^                                   meta.tag.any.bbcode
@@ -60,7 +60,6 @@
 #                         ^^^                markup.italic markup.bold markup.underline
 #                 ^^^^                       markup.italic markup.bold markup.underline markup.strikethrough
 
-# 3 Test embedded languages
 
 # 3 Test other tags
 [color="red"] # Color tag
@@ -75,6 +74,8 @@ red text      #
 # <-          meta.tag.any.bbcode
 #^^^^^^^      meta.tag.any.bbcode
 
+
+# 4 Test embedded languages
 [code=python]
 # <-                   meta.tag.code.python.bbcode
 #^^^^^^^^^^^^          meta.tag.code.python.bbcode
