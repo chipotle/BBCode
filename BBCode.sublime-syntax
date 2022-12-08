@@ -118,15 +118,14 @@ contexts:
 
   value-tag:
     - meta_include_prototype: false
-    - match: '\[/?[^\]=]*\]'
-      scope: meta.tag.any.bbcode
-      push : value-tag-body
-  value-tag-body:
-    - meta_scope: markup.underline
-    - match     : '\[.*?=(.*?)\]'
+    - match: '\[.*?=(.*?)\]'
       captures  :
         0: meta.tag.any.bbcode
         1: meta.tag.value.bbcode
+      push : value-tag-body
+  value-tag-body:
+    - match     : '\[/?[^\]=]*\]'
+      scope: meta.tag.any.bbcode
       pop       : 1
 
 
