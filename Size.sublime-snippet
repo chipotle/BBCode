@@ -1,5 +1,5 @@
 <snippet>
-  <content><![CDATA[[size=${2:1}]$1[/size]]]></content>
+  <content><![CDATA[[size=${2:12}]${1:$TM_SELECTED_TEXT}[/size]]]></content>
   <description>Size</description>
   <scope>text.bbcode</scope>
 </snippet>
