@@ -1,4 +1,6 @@
 [
+// BUG: preceding_text/following_text selectors fail since 'selection' is included, so can't reliably parse @ the start/end
+  // https://github.com/sublimehq/sublime_text/issues/4042
 // // [BBCode] Text Formatting Bold
 //   // auto-pair if not within a word
 //   {"keys":["super+b"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Bold.sublime-snippet"},"context":[
@@ -52,9 +54,61 @@
 //   {"keys":["super+i"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - UnItalicize.sublime-macro"},"context":[
 //     {"key":"selector",	"operator":"equal",	"operand":"text.bbcode markup.italic - punctuation, text.bbcode markup.bold_italic - punctuation",	"match_all":true } ]},
 
-  // { "keys": ["super+ctrl+b"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Bold.sublime-snippet"} },
-  // { "keys": ["super+ctrl+c"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Color.sublime-snippet"} },
-  // { "keys": ["super+ctrl+i"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Italic.sublime-snippet"} },
-  // { "keys": ["super+ctrl+2"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Size.sublime-snippet"} },
-  // { "keys": ["super+ctrl+w"], "command": "insert_snippet", "args": {"name": "Packages/BBCode/Wrap.sublime-snippet"} }
+// // [BBCode] Text Formatting Other: wrap, color, size tags
+//   // Wrap: auto-pair if outside a word
+//   {"keys":["super+ctrl+w"], 	"command":"insert_snippet","args":{"name":"Packages/BBCode/Wrap.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":true,                               	"match_all":true},
+//     {"key":"eol_selector",   	"operator":"not_equal",         	"operand":"string.quoted.single",             	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"['a-zA-Z0-9_*]$",                  	"match_all":true},
+//     {"key":"following_text", 	"operator":"regex_contains",    	"operand":"^(?:\t| |\\)|]|\\}|$)",            	"match_all":true} ]},
+//   // Wrap if caret is @ word's beginning/middle/end
+//   {"keys":["super+ctrl+w"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Wrap.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                               	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"regex_contains",	"operand":"\\w$",                             	"match_all":true} ]},
+//   // Wrap selection
+//   {"keys":["super+ctrl+b"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Wrap.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":false,                              	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"\\[\\w\\]$",                       	"match_all":true},
+//     {"key":"following_text", 	"operator":"not_regex_contains",	"operand":"^\\[\\/\\w\\]",                    	"match_all":true} ]},
+
+//   // Color: auto-pair if outside a word
+//   {"keys":["super+ctrl+c"], 	"command":"insert_snippet","args":{"name":"Packages/BBCode/Color.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":true,                               	"match_all":true},
+//     {"key":"eol_selector",   	"operator":"not_equal",         	"operand":"string.quoted.single",             	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"['a-zA-Z0-9_*]$",                  	"match_all":true},
+//     {"key":"following_text", 	"operator":"regex_contains",    	"operand":"^(?:\t| |\\)|]|\\}|$)",            	"match_all":true} ]},
+//   // Color if caret is @ word's beginning/middle/end
+//   {"keys":["super+ctrl+c"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Color.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                               	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"regex_contains",	"operand":"\\w$",                             	"match_all":true} ]},
+//   // Color selection
+//   {"keys":["super+ctrl+c"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Color.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":false,                              	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"\\[\\w\\]$",                       	"match_all":true},
+//     {"key":"following_text", 	"operator":"not_regex_contains",	"operand":"^\\[\\/\\w\\]",                    	"match_all":true} ]},
+
+//   // Size: auto-pair if outside a word
+//   {"keys":["super+ctrl+2"], 	"command":"insert_snippet","args":{"name":"Packages/BBCode/Size.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":true,                               	"match_all":true},
+//     {"key":"eol_selector",   	"operator":"not_equal",         	"operand":"string.quoted.single",             	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"['a-zA-Z0-9_*]$",                  	"match_all":true},
+//     {"key":"following_text", 	"operator":"regex_contains",    	"operand":"^(?:\t| |\\)|]|\\}|$)",            	"match_all":true} ]},
+//   // Size if caret is @ word's beginning/middle/end
+//   {"keys":["super+ctrl+2"], "command":"run_macro_file","args":{"file":"Packages/BBCode/macro/Transform Word - Size.sublime-macro"},"context":[
+//     {"key":"selector",       	"operator":"equal",         	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",         	"operand":true,                               	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"regex_contains",	"operand":"\\w$",                             	"match_all":true} ]},
+//   // Size selection
+//   {"keys":["super+ctrl+2"], "command":"insert_snippet","args":{"name":"Packages/BBCode/Size.sublime-snippet"},"context":[
+//     {"key":"selector",       	"operator":"equal",             	"operand":"text.bbcode - meta.tag.any.bbcode",	"match_all":true},
+//     {"key":"selection_empty",	"operator":"equal",             	"operand":false,                              	"match_all":true},
+//     {"key":"preceding_text", 	"operator":"not_regex_contains",	"operand":"\\[\\w\\]$",                       	"match_all":true},
+//     {"key":"following_text", 	"operator":"not_regex_contains",	"operand":"^\\[\\/\\w\\]",                    	"match_all":true} ]},
 ]
