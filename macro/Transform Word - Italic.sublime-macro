@@ -1,0 +1,5 @@
+[
+{"command":"expand_selection"	,"args":{"to":"word"}},
+{"command":"insert_snippet"  	,"args":{"contents":"[i]${1:$SELECTION}[/i]"}},
+// [­i]ITALIC TEXT[­/i] will display ITALIC TEXT can escape with unprintable char (soft hyphen here after [)
+]
